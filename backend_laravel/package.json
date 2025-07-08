@@ -1,0 +1,34 @@
+{
+    "$schema": "https://json.schemastore.org/package.json",
+    "name": "aequatomnis-backend",
+    "version": "1.0.0",
+    "description": "Backend Laravel para o projeto AequatOmnis - Sistema de vendas de jogos",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "serve": "php artisan serve --host=0.0.0.0 --port=8000",
+        "dev": "concurrently \"php artisan serve --host=0.0.0.0 --port=8000\" \"vite\"",
+        "migrate": "php artisan migrate",
+        "migrate:fresh": "php artisan migrate:fresh --seed",
+        "seed": "php artisan db:seed",
+        "build": "vite build",
+        "test": "php artisan test"
+    },
+    "devDependencies": {
+        "@tailwindcss/vite": "^4.0.0",
+        "axios": "^1.8.2",
+        "concurrently": "^9.0.1",
+        "laravel-vite-plugin": "^1.2.0",
+        "tailwindcss": "^4.0.0",
+        "vite": "^6.2.4"
+    },
+    "keywords": [
+        "laravel",
+        "php",
+        "api",
+        "jogos",
+        "vendas"
+    ],
+    "author": "gui.dev",
+    "license": "MIT"
+}

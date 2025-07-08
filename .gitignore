@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+vendor/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Laravel specific
+backend_laravel/storage/logs/*
+backend_laravel/storage/app/public/images/*
+!backend_laravel/storage/app/public/images/.gitkeep
+backend_laravel/bootstrap/cache/*
+
+# Vue.js build files
+frontend_vuejs/dist/
+
+# Log files
+*.log
