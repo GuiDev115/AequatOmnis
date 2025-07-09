@@ -59,9 +59,15 @@ class AuthController extends Controller
 
             $user = User::where('email', $request->email)->first();
 
-            if (!$user || !Hash::check($request->password, $user->password)) {
+            if (!$user) {
                 return response()->json([
-                    'error' => 'Credenciais inválidas'
+                    'error' => 'Usuário não encontrado'
+                ], 401);
+            }
+
+            if (!Hash::check($request->password, $user->password)) {
+                return response()->json([
+                    'error' => 'Senha incorreta'
                 ], 401);
             }
 
@@ -74,8 +80,9 @@ class AuthController extends Controller
                 'tokenExpiration' => '1d'
             ]);
         } catch (\Exception $e) {
+            \Log::error('Erro no login: ' . $e->getMessage());
             return response()->json([
-                'error' => 'Erro interno do servidor'
+                'error' => 'Erro interno do servidor: ' . $e->getMessage()
             ], 500);
         }
     }

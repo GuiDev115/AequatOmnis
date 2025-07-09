@@ -13,19 +13,33 @@ class AdminUserSeeder extends Seeder
      */
     public function run(): void
     {
-        $existingAdmin = User::where('email', 'admin')->first();
+        $existingAdmin = User::where('email', 'admin@aequatomnis.com')->first();
         
         if (!$existingAdmin) {
             User::create([
-                'name' => 'admin',
-                'email' => 'admin',
-                'password' => 'admin',
+                'name' => 'Administrador',
+                'email' => 'admin@aequatomnis.com',
+                'password' => 'password123',
                 'administrador' => true,
             ]);
             
             $this->command->info('Usuário administrador criado com sucesso');
         } else {
             $this->command->info('Usuário administrador já existe');
+        }
+        
+        // Também criar um usuário admin simples para compatibilidade
+        $existingSimpleAdmin = User::where('email', 'admin@admin.com')->first();
+        
+        if (!$existingSimpleAdmin) {
+            User::create([
+                'name' => 'Admin',
+                'email' => 'admin@admin.com',
+                'password' => 'admin',
+                'administrador' => true,
+            ]);
+            
+            $this->command->info('Usuário admin simples criado com sucesso');
         }
     }
 }

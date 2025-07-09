@@ -12,15 +12,24 @@ const usuario = ref({
 const login = async () => {
     try {
         console.log(usuario.value)
-        const { data } = await http.post('/client/login', usuario.value)
+        const { data } = await http.post('/login', usuario.value)
             
-        if(usuario.email == "admin" && usuario.password == "admin") {
-            console.log("eu entrei como admin")
-           router.push('/admin')
+        if(data.user && data.user.administrador) {
+            console.log("Login como admin realizado com sucesso")
+            // Armazenar token no localStorage
+            localStorage.setItem('auth_token', data.token)
+            localStorage.setItem('user', JSON.stringify(data.user))
+            router.push('/admin')
+        } else if(data.user) {
+            console.log("Login como usuário comum realizado com sucesso")
+            localStorage.setItem('auth_token', data.token)
+            localStorage.setItem('user', JSON.stringify(data.user))
+            router.push('/')
         }
         console.log(data)
     } catch (error) {
-        console.log(error?.response?.data)
+        console.log("Erro no login:", error?.response?.data)
+        alert("Erro no login: " + (error?.response?.data?.error || "Credenciais inválidas"))
     }
 }
 </script>

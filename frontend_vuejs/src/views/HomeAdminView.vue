@@ -3,7 +3,8 @@
 import Carrosel from '../components/CarroselJogos.vue'
 import Banner from '../components/BannerJogo.vue'
 import JogosEmpresa from '../components/RowDisplay.vue'
-import NavBarAdmin from '../components/NavBarAdmin.vue';
+import NavBarAdmin from '../components/NavBarAdmin.vue'
+import Cards from '../components/CardJogos.vue'
 
 </script>
 

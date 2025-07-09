@@ -1,0 +1,32 @@
+
+> frontend_vuejs@0.0.0 dev
+> vite
+
+
+  VITE v4.5.14  ready in 537 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+Failed to resolve import "../components/Navbar.vue" from "src/views/HomeView.vue". Does the file exist?
+8:42:20 PM [vite] Internal server error: Failed to resolve import "../components/Navbar.vue" from "src/views/HomeView.vue". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/guidev/repos/AequatOmnis/frontend_vuejs/src/views/HomeView.vue:6:21
+  2  |  import Banner from '../components/BannerJogo.vue'
+  3  |  import JogosEmpresa from '../components/RowDisplay.vue'
+  4  |  import Navbar from '../components/Navbar.vue'
+     |                      ^
+  5  |  
+  6  |  
+      at formatError (file:///home/guidev/repos/AequatOmnis/frontend_vuejs/node_modules/vite/dist/node/chunks/dep-827b23df.js:44066:46)
+      at TransformContext.error (file:///home/guidev/repos/AequatOmnis/frontend_vuejs/node_modules/vite/dist/node/chunks/dep-827b23df.js:44062:19)
+      at normalizeUrl (file:///home/guidev/repos/AequatOmnis/frontend_vuejs/node_modules/vite/dist/node/chunks/dep-827b23df.js:41845:33)
+      at async file:///home/guidev/repos/AequatOmnis/frontend_vuejs/node_modules/vite/dist/node/chunks/dep-827b23df.js:41999:47
+      at async Promise.all (index 3)
+      at async TransformContext.transform (file:///home/guidev/repos/AequatOmnis/frontend_vuejs/node_modules/vite/dist/node/chunks/dep-827b23df.js:41915:13)
+      at async Object.transform (file:///home/guidev/repos/AequatOmnis/frontend_vuejs/node_modules/vite/dist/node/chunks/dep-827b23df.js:44356:30)
+      at async loadAndTransform (file:///home/guidev/repos/AequatOmnis/frontend_vuejs/node_modules/vite/dist/node/chunks/dep-827b23df.js:55088:29)
+      at async viteTransformMiddleware (file:///home/guidev/repos/AequatOmnis/frontend_vuejs/node_modules/vite/dist/node/chunks/dep-827b23df.js:64699:32)
+8:43:01 PM [vite] page reload src/views/HomeView.vue
+8:43:25 PM [vite] hmr update /src/App.vue
+8:44:27 PM [vite] hmr update /src/views/HomeView.vue
+8:44:47 PM [vite] hmr update /src/views/HomeAdminView.vue

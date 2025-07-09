@@ -10,6 +10,75 @@ O sistema preve e implementa funcionalidades para 3 possiveis usuários: Usuári
   </p>
 </div>
 
+## 🚀 Como iniciar o projeto
+
+### Pré-requisitos
+- PHP 8.2 ou superior
+- Composer 2.0 ou superior
+- Node.js 18.16 ou superior
+- NPM ou Yarn
+
+### Método 1: Usando scripts automatizados (Recomendado)
+
+```bash
+# Clone o repositório
+git clone <url-do-repositorio>
+cd AequatOmnis
+
+# Execute o script de inicialização
+./start.sh
+
+# Para parar o projeto
+./stop.sh
+```
+
+### Método 2: Inicialização manual
+
+#### Backend (Laravel)
+```bash
+# Entre na pasta do backend
+cd backend_laravel
+
+# Instale as dependências PHP
+composer install
+
+# Instale as dependências Node.js (para assets)
+npm install
+
+# Configure o ambiente
+cp .env.example .env
+php artisan key:generate
+
+# Crie o banco de dados
+touch database/database.sqlite
+php artisan migrate:fresh --seed
+
+# Inicie o servidor
+php artisan serve --host=0.0.0.0 --port=8000
+```
+
+#### Frontend (Vue.js)
+```bash
+# Em outro terminal, entre na pasta do frontend
+cd frontend_vuejs
+
+# Instale as dependências
+npm install
+
+# Inicie o servidor de desenvolvimento
+npm run dev
+```
+
+### 🌐 Acessando o sistema
+
+- **Frontend**: http://localhost:5173
+- **Backend API**: http://localhost:8000
+
+### 🔐 Credenciais de administrador
+
+- **Email**: admin@aequatomnis.com
+- **Senha**: password123
+
 ## 🖥 Principais Funcionalidades:
 - Login (Cliente/ADM) RF
 - Cadastro (Cliente/ADM) RF
@@ -50,94 +119,89 @@ O sistema preve e implementa funcionalidades para 3 possiveis usuários: Usuári
    ◉ Vuetify 3.3 (Icarus)
    ◉ HTML 5
    ◉ CSS 3
-   ◉ JS
+   ◉ JavaScript
 ```
 2. BackEnd:
  ```
-   ◉ NodeJS 18.16
-   ◉ Nodemon 2.0
-   ◉ Multer 1.4
-   ◉ Bcryptjs (*)
-   ◉ Crypto (*)
-```
-3. Banco de Dados:
-```
-   ◉ mongoDB 6.0
-   ◉ mongoose
-```
-4. Servidor:
-```
-   ◉ npm serve
-   ◉ Apache2
+   ◉ Laravel 12
+   ◉ PHP 8.2+
+   ◉ Laravel Sanctum (Autenticação)
+   ◉ SQLite (Banco de dados)
+   ◉ Vite (Build tools)
 ```
 
-## Regras de uso do git
-#### Regras de commit
+## 📁 Estrutura do projeto
 ```
-   - Limite o assunto do commit a 50 caracteres.
-   - Utilizar verbos no imperativo (atualizado, alterado, adicionado, etc.).
-   - Procure ser direto e explicativo em seus commits.
-   - Realize pequenos commits, sempre mantendo a ultima versão mais estável para o commit atual.
-   - Não utilizar pontos finais.
-```
-
-#### Uso de branches
-```
-   - Caso haja alteração na documentação, alterar diretamente na main.
-   - Caso haja alteração no código, utilize uma branch separada.
-   - Não realizar merge da branch para a main sem que o código esteja funcional ou ser apenas um teste.
-```
-
-## Organização de pastas
-```
-   ├── Documentação
-   │   ├── Padrões adotados
-   │   │    ├── Padrões de codificação.pdf
-   │   │    └── Regras de Verificação e Analise de Requisitos.pdf
-   |   | 
-   │   ├── Requisitos
-   │   │    └── Documento de Requisitos.pdf
-   |   |
-   │   └── Diagramas
-   │        ├── Diagrama de casos de uso.pdf
-   |        ├── Diagrama de classes.pdf
-   |        ├── Diagrama de implantação.png
-   |        ├── Diagrama de sequencia.pdf
-   │        └── Diagrama de pacotes.png
-   │  
-   ├── BackEnd
-   │   ├── node_modules
-   │   ├── src
-   │   |    ├── app
-   │   |    ├── config
-   │   |    ├── database
-   │   |    ├── modules
-   │   |    ├── resources/mail/auth
-   │   |    ├── index.js
-   │   |    └── swagger.json
-   |   |
-   │   └── Upload/imgs
-   │        └── icon.png
-   |
-   ├── FrontEnd
-   │   ├── node_modules
-   │   ├── public
-   │   ├── src
-   │   |    ├── assets
-   │   |    ├── components
-   │   |    ├── router
-   │   |    ├── view
-   │   |    ├── App.vue
-   │   |    └── main.js
-   │   | 
-   │   ├── index.html
-   │   ├── package-lock.json
-   │   ├── package.json
-   │   └── vite.config.js
-
+AequatOmnis/
+├── backend_laravel/          # Backend Laravel
+│   ├── app/                  # Código da aplicação
+│   ├── database/             # Migrações e seeders
+│   ├── routes/               # Rotas da API
+│   └── ...
+├── frontend_vuejs/           # Frontend Vue.js
+│   ├── src/                  # Código fonte
+│   ├── components/           # Componentes Vue
+│   ├── views/                # Páginas da aplicação
+│   └── ...
+├── Documentação/             # Documentação do projeto
+├── start.sh                  # Script para iniciar o projeto
+├── stop.sh                   # Script para parar o projeto
+└── README.md                 # Este arquivo
 ```
 
-#
-Integrantes: [Lucas Gomes Colombo](https://github.com/LucasgColombo), [Guilherme Fabrício](https://github.com/GuiDev115), [Rafael Furtado](https://github.com/zSchwi)
+## 🛠 Comandos úteis
 
-(*) Se caso der tempo para aplicar, iremos colocar criptografia no projeto
+### Backend Laravel
+```bash
+# Executar migrações
+php artisan migrate
+
+# Executar seeders
+php artisan db:seed
+
+# Limpar cache
+php artisan cache:clear
+
+# Executar testes
+php artisan test
+```
+
+### Frontend Vue.js
+```bash
+# Instalar dependências
+npm install
+
+# Executar em desenvolvimento
+npm run dev
+
+# Build para produção
+npm run build
+
+# Preview da build
+npm run preview
+```
+
+## 🔍 Troubleshooting
+
+### Erro: "Database file does not exist"
+```bash
+# Criar arquivo do banco de dados
+touch backend_laravel/database/database.sqlite
+```
+
+### Erro: "Port already in use"
+```bash
+# Verificar processos nas portas
+netstat -tlnp | grep -E ":(8000|5173)"
+
+# Matar processos se necessário
+pkill -f "php artisan serve"
+pkill -f "vite"
+```
+
+### Erro: "Application key not set"
+```bash
+# Gerar nova chave
+cd backend_laravel
+php artisan key:generate
+```

@@ -1,6 +1,6 @@
 <template>
   <v-app id="inspire" theme="dark">
-    <Navbar />
+    <NavBarAdmin />
     <v-main>
       <RouterView />
 
@@ -14,6 +14,6 @@
   * TODO: Fazer componente para display dos card pegando tudo que ta em v-row
 **/
 
-import Navbar from './components/NavBarAdmin.vue'
+import NavBarAdmin from './components/NavBarAdmin.vue'
 
 </script>
